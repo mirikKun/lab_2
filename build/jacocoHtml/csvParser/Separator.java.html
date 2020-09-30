@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Separator.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">lab_2</a> &gt; <a href="index.source.html" class="el_package">csvParser</a> &gt; <span class="el_source">Separator.java</span></div><h1>Separator.java</h1><pre class="source lang-java linenums">package csvParser;
+
+
+class Propety
+{
+     char separator;
+     String plus;
+     String pathTo;
+     String pathFrom ;
+     Propety()
+<span class="fc" id="L11">    {</span>
+<span class="fc" id="L12">        separator = ',';</span>
+<span class="fc" id="L13">        plus = &quot;+&quot;;</span>
+<span class="fc" id="L14">        pathTo = &quot;text.csv&quot;;</span>
+<span class="fc" id="L15">        pathFrom = &quot;result.txt&quot;;</span>
+<span class="fc" id="L16">    }</span>
+    Propety(String plas)
+<span class="fc" id="L18">    {</span>
+<span class="fc" id="L19">        separator = ',';</span>
+<span class="fc" id="L20">        plus = plas;</span>
+<span class="fc" id="L21">        pathTo = &quot;text.csv&quot;;</span>
+<span class="fc" id="L22">        pathFrom = &quot;result.txt&quot;;</span>
+<span class="fc" id="L23">    }</span>
+    Propety( String plas,String to)
+<span class="fc" id="L25">    {</span>
+<span class="fc" id="L26">        separator = ',';</span>
+<span class="fc" id="L27">        plus = plas;</span>
+<span class="fc" id="L28">        pathTo = to;</span>
+<span class="fc" id="L29">        pathFrom = &quot;result.txt&quot;;</span>
+<span class="fc" id="L30">    }</span>
+    Propety( String plas,String to, String from)
+<span class="fc" id="L32">    {</span>
+<span class="fc" id="L33">        separator = ',';</span>
+<span class="fc" id="L34">        plus = plas;</span>
+<span class="fc" id="L35">        pathTo = to;</span>
+<span class="fc" id="L36">        pathFrom = from;</span>
+<span class="fc" id="L37">    }</span>
+    Propety( String plas,String to, String from, char separ)
+<span class="fc" id="L39">    {</span>
+<span class="fc" id="L40">        separator = separ;</span>
+<span class="fc" id="L41">        plus = plas;</span>
+<span class="fc" id="L42">        pathTo = to;</span>
+<span class="fc" id="L43">        pathFrom = from;</span>
+<span class="fc" id="L44">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

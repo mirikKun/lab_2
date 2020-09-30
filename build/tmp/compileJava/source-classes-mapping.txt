@@ -1,0 +1,10 @@
+csvParser/Parser.java
+ csvParser.Parser
+csvParser/Main.java
+ csvParser.Main
+csvParser/Formater.java
+ csvParser.Formater
+csvParser/Input.java
+ csvParser.Input
+csvParser/Separator.java
+ csvParser.Propety

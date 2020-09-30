@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Parser.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">lab_2</a> &gt; <a href="index.source.html" class="el_package">csvParser</a> &gt; <span class="el_source">Parser.java</span></div><h1>Parser.java</h1><pre class="source lang-java linenums">package csvParser;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+<span class="nc" id="L7">public class Parser {</span>
+
+    public static List&lt;String&gt; parseLine(String cvsLine, char separators, char quote) {
+
+<span class="fc" id="L11">        List&lt;String&gt; result = new ArrayList&lt;&gt;();</span>
+
+<span class="pc bpc" id="L13" title="3 of 4 branches missed.">        if (cvsLine == null &amp;&amp; cvsLine.isEmpty()) {</span>
+<span class="nc" id="L14">            return result;</span>
+        }
+
+<span class="fc" id="L17">        StringBuffer curVal = new StringBuffer();</span>
+<span class="fc" id="L18">        boolean inComment = false;</span>
+<span class="fc" id="L19">        boolean firstComment = false;</span>
+<span class="fc" id="L20">        boolean inQuotes = false;</span>
+<span class="fc" id="L21">        boolean startCollectChar = false;</span>
+<span class="fc" id="L22">        boolean doubleQuotesInColumn = false;</span>
+
+<span class="fc" id="L24">        char[] chars = cvsLine.toCharArray();</span>
+
+<span class="fc bfc" id="L26" title="All 2 branches covered.">        for (char ch : chars) {</span>
+<span class="fc bfc" id="L27" title="All 2 branches covered.">            if (!inComment) {</span>
+<span class="fc bfc" id="L28" title="All 2 branches covered.">                if (inQuotes) {</span>
+
+<span class="fc" id="L30">                    startCollectChar = true;</span>
+<span class="fc bfc" id="L31" title="All 2 branches covered.">                    if (ch == quote) {</span>
+<span class="fc" id="L32">                        inQuotes = false;</span>
+<span class="fc" id="L33">                        doubleQuotesInColumn = false;</span>
+                    }
+<span class="fc bfc" id="L35" title="All 4 branches covered.">                    else if (firstComment &amp; ch == '*')</span>
+                    {
+<span class="fc" id="L37">                            inComment = true;</span>
+
+                    }
+<span class="fc bfc" id="L40" title="All 2 branches covered.">                    else if (ch == '/')</span>
+                    {
+<span class="fc" id="L42">                        firstComment = true;</span>
+                    }
+                    else
+                        {
+
+<span class="pc bpc" id="L47" title="1 of 2 branches missed.">                        if (ch == '\&quot;') {</span>
+<span class="nc bnc" id="L48" title="All 2 branches missed.">                            if (!doubleQuotesInColumn) {</span>
+<span class="nc" id="L49">                                curVal.append(ch);</span>
+<span class="nc" id="L50">                                doubleQuotesInColumn = true;</span>
+                            }
+<span class="fc bfc" id="L52" title="All 2 branches covered.">                        } else if (firstComment) {</span>
+<span class="fc" id="L53">                            curVal.append('/');</span>
+<span class="fc" id="L54">                            curVal.append(ch);</span>
+<span class="fc" id="L55">                            firstComment = false;</span>
+                        }
+else
+<span class="fc" id="L58">                            curVal.append(ch);</span>
+                    }
+                }
+                else {
+<span class="fc bfc" id="L62" title="All 2 branches covered.">                    if (ch == quote) {</span>
+
+<span class="fc" id="L64">                        inQuotes = true;</span>
+
+<span class="pc bpc" id="L66" title="1 of 4 branches missed.">                        if (chars[0] != '&quot;' &amp;&amp; quote == '\&quot;') {</span>
+<span class="fc" id="L67">                            curVal.append('&quot;');</span>
+                        }
+
+<span class="fc bfc" id="L70" title="All 2 branches covered.">                        if (startCollectChar) {</span>
+<span class="fc" id="L71">                            curVal.append('&quot;');</span>
+                        }
+
+<span class="fc bfc" id="L74" title="All 2 branches covered.">                    } else if (ch == separators) {</span>
+
+<span class="fc" id="L76">                        result.add(curVal.toString());</span>
+
+<span class="fc" id="L78">                        curVal = new StringBuffer();</span>
+<span class="fc" id="L79">                        startCollectChar = false;</span>
+
+<span class="fc bfc" id="L81" title="All 2 branches covered.">                    } else if (ch == '\n') {</span>
+
+<span class="fc" id="L83">                        break;</span>
+                    }
+<span class="pc bpc" id="L85" title="1 of 2 branches missed.">                    else if (firstComment) {</span>
+<span class="nc bnc" id="L86" title="All 2 branches missed.">                        if (ch == '*')</span>
+<span class="nc" id="L87">                            inComment = true;</span>
+                        else {
+<span class="nc" id="L89">                            firstComment = false;</span>
+<span class="nc" id="L90">                            curVal.append('/');</span>
+<span class="nc" id="L91">                            curVal.append(ch);</span>
+                        }
+                    }
+<span class="pc bpc" id="L94" title="1 of 2 branches missed.">                    else if (ch == '/') {</span>
+<span class="nc" id="L95">                        firstComment = true;</span>
+                    } else {
+<span class="fc" id="L97">                        curVal.append(ch);</span>
+                    }
+                }
+            } else {
+<span class="fc bfc" id="L101" title="All 2 branches covered.">                if (firstComment) {</span>
+<span class="fc bfc" id="L102" title="All 2 branches covered.">                    if (ch == '/') {</span>
+<span class="fc" id="L103">                        inComment = false;</span>
+<span class="fc" id="L104">                        firstComment = false;</span>
+                    } else
+<span class="fc" id="L106">                        firstComment = false;</span>
+                }
+<span class="fc bfc" id="L108" title="All 2 branches covered.">                if (ch == '*')</span>
+<span class="fc" id="L109">                    firstComment = true;</span>
+
+            }
+        }
+
+<span class="fc" id="L114">        result.add(curVal.toString());</span>
+
+<span class="fc" id="L116">        return result;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

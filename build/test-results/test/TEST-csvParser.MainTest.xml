@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="csvParser.MainTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-09-30T18:53:45" hostname="DESKTOP-N2T8FBU" time="0.046">
+  <properties/>
+  <testcase name="work()" classname="csvParser.MainTest" time="0.046"/>
+  <system-out><![CDATA[C:\Users\mirik\IdeaProjects\lab_2\src\main\resources\result.txt
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

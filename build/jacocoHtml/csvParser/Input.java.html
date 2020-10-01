@@ -4,34 +4,39 @@ import java.util.Scanner;
 
 <span class="nc" id="L5">public class Input {</span>
     private static Propety ff;
-    public static Propety newIn()
+
+    public static Propety newIn() {
+<span class="nc" id="L9">        return getIn(new Asker(System.in, System.out));</span>
+    }
+
+    public static Propety getIn(Asker asker)
     {
-<span class="nc" id="L9">        Scanner Scan = new Scanner(System.in);</span>
-<span class="nc" id="L10">        System.out.println(&quot;Р’РІРµРґРёС‚Рµ РёС‚РѕРіРѕРІС‹Р№ СЃРµРїР°СЂР°С‚РѕСЂ:&quot;);</span>
-<span class="nc" id="L11">        String plus = Scan.nextLine();</span>
-<span class="nc bnc" id="L12" title="All 2 branches missed.">        if (!plus.equals(&quot;&quot;)) {</span>
-<span class="nc" id="L13">            System.out.println(&quot;Р’РІРµРґРёС‚Рµ РїСѓС‚СЊ Рє С„Р°Р№Р»Сѓ:&quot;);</span>
-<span class="nc" id="L14">            String to = Scan.nextLine();</span>
-<span class="nc bnc" id="L15" title="All 2 branches missed.">            if (!to.equals(&quot;&quot;)){</span>
-<span class="nc" id="L16">                System.out.println(&quot;Р’РІРµРґРёС‚Рµ РїСѓС‚СЊ СЃРѕР·РґР°РЅРёСЏ:&quot;);</span>
-<span class="nc" id="L17">                String from = Scan.nextLine();</span>
-<span class="nc bnc" id="L18" title="All 2 branches missed.">                if (!from.equals(&quot;&quot;)){</span>
-<span class="nc" id="L19">                    System.out.println(&quot;Р’РІРµРґРёС‚Рµ СЃРµРїР°СЂР°С‚РѕСЂ:&quot;);</span>
-<span class="nc" id="L20">                    String sep = Scan.nextLine();</span>
-<span class="nc bnc" id="L21" title="All 2 branches missed.">                    if (!sep.equals(&quot;&quot;))</span>
-<span class="nc" id="L22">                        ff=new Propety(plus,to,from,sep.charAt(0));</span>
+<span class="fc" id="L14">        Scanner Scan = new Scanner(System.in);</span>
+        //System.out.println(&quot;Р’РІРµРґРёС‚Рµ РёС‚РѕРіРѕРІС‹Р№ СЃРµРїР°СЂР°С‚РѕСЂ:&quot;);
+<span class="fc" id="L16">        String plus = asker.ask(&quot;Р’РІРµРґРёС‚Рµ РёС‚РѕРіРѕРІС‹Р№ СЃРµРїР°СЂР°С‚РѕСЂ:&quot;);</span>
+<span class="pc bpc" id="L17" title="1 of 2 branches missed.">        if (!plus.equals(&quot;&quot;)) {</span>
+            //System.out.println(&quot;Р’РІРµРґРёС‚Рµ РїСѓС‚СЊ Рє С„Р°Р№Р»Сѓ:&quot;);
+<span class="fc" id="L19">            String to = asker.ask(&quot;Р’РІРµРґРёС‚Рµ РїСѓС‚СЊ Рє С„Р°Р№Р»Сѓ:&quot;);</span>
+<span class="pc bpc" id="L20" title="1 of 2 branches missed.">            if (!to.equals(&quot;&quot;)){</span>
+                //System.out.println(&quot;Р’РІРµРґРёС‚Рµ РїСѓС‚СЊ СЃРѕР·РґР°РЅРёСЏ:&quot;);
+<span class="fc" id="L22">                String from = asker.ask(&quot;Р’РІРµРґРёС‚Рµ РїСѓС‚СЊ СЃРѕР·РґР°РЅРёСЏ:&quot;);</span>
+<span class="pc bpc" id="L23" title="1 of 2 branches missed.">                if (!from.equals(&quot;&quot;)){</span>
+                    //System.out.println(&quot;Р’РІРµРґРёС‚Рµ СЃРµРїР°СЂР°С‚РѕСЂ:&quot;);
+<span class="fc" id="L25">                    String sep = asker.ask(&quot;Р’РІРµРґРёС‚Рµ СЃРµРїР°СЂР°С‚РѕСЂ:&quot;);</span>
+<span class="pc bpc" id="L26" title="1 of 2 branches missed.">                    if (!sep.equals(&quot;&quot;))</span>
+<span class="fc" id="L27">                        ff=new Propety(plus,to,from,sep.charAt(0));</span>
                     else
-<span class="nc" id="L24">                        ff=new Propety(plus,to,from);</span>
-<span class="nc" id="L25">                }</span>
-<span class="nc" id="L26">                else ff=new Propety(plus,to);</span>
-<span class="nc" id="L27">            }</span>
+<span class="nc" id="L29">                        ff=new Propety(plus,to,from);</span>
+<span class="fc" id="L30">                }</span>
+<span class="nc" id="L31">                else ff=new Propety(plus,to);</span>
+<span class="fc" id="L32">            }</span>
             else
-<span class="nc" id="L29">                ff=new Propety(plus);</span>
-<span class="nc" id="L30">        }</span>
+<span class="nc" id="L34">                ff=new Propety(plus);</span>
+<span class="fc" id="L35">        }</span>
         else{
-<span class="nc" id="L32">            ff= new Propety();</span>
+<span class="nc" id="L37">            ff= new Propety();</span>
         }
-<span class="nc" id="L34">        return ff;</span>
+<span class="fc" id="L39">        return ff;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

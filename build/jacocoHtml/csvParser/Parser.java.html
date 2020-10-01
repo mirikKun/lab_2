@@ -82,17 +82,17 @@ else
 
 <span class="fc" id="L83">                        break;</span>
                     }
-<span class="pc bpc" id="L85" title="1 of 2 branches missed.">                    else if (firstComment) {</span>
-<span class="nc bnc" id="L86" title="All 2 branches missed.">                        if (ch == '*')</span>
+<span class="fc bfc" id="L85" title="All 2 branches covered.">                    else if (firstComment) {</span>
+<span class="pc bpc" id="L86" title="1 of 2 branches missed.">                        if (ch == '*')</span>
 <span class="nc" id="L87">                            inComment = true;</span>
                         else {
-<span class="nc" id="L89">                            firstComment = false;</span>
-<span class="nc" id="L90">                            curVal.append('/');</span>
-<span class="nc" id="L91">                            curVal.append(ch);</span>
+<span class="fc" id="L89">                            firstComment = false;</span>
+<span class="fc" id="L90">                            curVal.append('/');</span>
+<span class="fc" id="L91">                            curVal.append(ch);</span>
                         }
                     }
-<span class="pc bpc" id="L94" title="1 of 2 branches missed.">                    else if (ch == '/') {</span>
-<span class="nc" id="L95">                        firstComment = true;</span>
+<span class="fc bfc" id="L94" title="All 2 branches covered.">                    else if (ch == '/') {</span>
+<span class="fc" id="L95">                        firstComment = true;</span>
                     } else {
 <span class="fc" id="L97">                        curVal.append(ch);</span>
                     }

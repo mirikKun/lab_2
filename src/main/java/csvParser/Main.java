@@ -1,6 +1,7 @@
 package csvParser;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -15,6 +16,10 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         Propety ff= Input.newIn();
+        work(ff);
+    }
+
+    public static void work(Propety ff) throws IOException {
         File text = new File("src/main/resources/"+ff.pathTo);
         File file = new File("src/main/resources/"+ff.pathFrom);
         Formater KOLIA=new Formater();

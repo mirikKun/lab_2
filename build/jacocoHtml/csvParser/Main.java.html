@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Main.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">lab_2</a> &gt; <a href="index.source.html" class="el_package">csvParser</a> &gt; <span class="el_source">Main.java</span></div><h1>Main.java</h1><pre class="source lang-java linenums">package csvParser;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -10,24 +11,28 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
-<span class="nc" id="L13">public class Main {</span>
+<span class="nc" id="L14">public class Main {</span>
     private static final char quote ='\&quot;';
 
     public static void main(String[] args) throws IOException {
-<span class="nc" id="L17">        Propety ff= Input.newIn();</span>
-<span class="nc" id="L18">        File text = new File(&quot;src/main/resources/&quot;+ff.pathTo);</span>
-<span class="nc" id="L19">        File file = new File(&quot;src/main/resources/&quot;+ff.pathFrom);</span>
-<span class="nc" id="L20">        Formater KOLIA=new Formater();</span>
-<span class="nc" id="L21">        String absolutePath = file.getAbsolutePath();</span>
-<span class="nc" id="L22">        StringBuilder result = new StringBuilder();</span>
-<span class="nc" id="L23">        Scanner scan= new Scanner(text);</span>
-<span class="nc" id="L24">        List&lt;String&gt; lines= new ArrayList&lt;&gt;();</span>
-<span class="nc bnc" id="L25" title="All 2 branches missed.">        while (scan.hasNext()) {</span>
-<span class="nc" id="L26">            lines.add(KOLIA.format(Parser.parseLine(scan.nextLine(),ff.separator,quote),ff.plus));</span>
+<span class="nc" id="L18">        Propety ff= Input.newIn();</span>
+<span class="nc" id="L19">        work(ff);</span>
+<span class="nc" id="L20">    }</span>
+
+    public static void work(Propety ff) throws IOException {
+<span class="fc" id="L23">        File text = new File(&quot;src/main/resources/&quot;+ff.pathTo);</span>
+<span class="fc" id="L24">        File file = new File(&quot;src/main/resources/&quot;+ff.pathFrom);</span>
+<span class="fc" id="L25">        Formater KOLIA=new Formater();</span>
+<span class="fc" id="L26">        String absolutePath = file.getAbsolutePath();</span>
+<span class="fc" id="L27">        StringBuilder result = new StringBuilder();</span>
+<span class="fc" id="L28">        Scanner scan= new Scanner(text);</span>
+<span class="fc" id="L29">        List&lt;String&gt; lines= new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L30" title="All 2 branches covered.">        while (scan.hasNext()) {</span>
+<span class="fc" id="L31">            lines.add(KOLIA.format(Parser.parseLine(scan.nextLine(),ff.separator,quote),ff.plus));</span>
         }
-<span class="nc" id="L28">        lines.forEach(line -&gt; result.append(line));</span>
-<span class="nc" id="L29">        Files.write(Paths.get(absolutePath), Collections.singletonList(result), StandardCharsets.UTF_8);</span>
-<span class="nc" id="L30">        System.out.println(absolutePath);</span>
-<span class="nc" id="L31">    }</span>
+<span class="fc" id="L33">        lines.forEach(line -&gt; result.append(line));</span>
+<span class="fc" id="L34">        Files.write(Paths.get(absolutePath), Collections.singletonList(result), StandardCharsets.UTF_8);</span>
+<span class="fc" id="L35">        System.out.println(absolutePath);</span>
+<span class="fc" id="L36">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

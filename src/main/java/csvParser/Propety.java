@@ -1,5 +1,7 @@
 package csvParser;
 
+import java.util.Objects;
+
 public class Propety {
     char separator;
     String plus;
@@ -41,4 +43,19 @@ public class Propety {
         pathFrom = from;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Propety propety = (Propety) o;
+        return separator == propety.separator &&
+                plus.equals(propety.plus) &&
+                pathTo.equals(propety.pathTo) &&
+                pathFrom.equals(propety.pathFrom);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(separator, plus, pathTo, pathFrom);
+    }
 }
